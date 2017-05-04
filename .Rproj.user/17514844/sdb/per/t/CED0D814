@@ -1,0 +1,17 @@
+{
+    "contents" : "\n# This is the user-interface definition of a Shiny web application.\n# You can find out more about building applications with Shiny here:\n#\n# http://shiny.rstudio.com\n#\n\nlibrary(shiny)\nlibrary(blsAPI)\nlibrary(RCurl)\nlibrary(RJSONIO)\nlibrary(ggplot2)\nlibrary(dplyr)\nlibrary(scales)\nlibrary(plotly)\nlibrary(shinythemes)\n\nmonth             <- \"August\"\ndataRelease       <- \"9/28/16\"\ntotalJobPostings  <- \"9,239\"\nbaPlusJobPostings <- \"2,059\"\npercentageBaPlus  <- \"22%\"\n\nshinyUI(fluidPage(\n       theme = shinytheme(\"journal\"),\n\n    # Show a plot of the generated distribution\n   fluidRow(\n    column(12, \n       align = \"center\",\n       h1(\"Unemployment Rate,\", month, \"2006-2016\"),\n       h6('Data Source: Bureau of Labor Statistics, Local Area Unemployment Statistics. Data Released: ', dataRelease),\n       plotlyOutput(\"unemploymentRatePlot\"),\n       br(),\n       br()),\n    \n    column(12, \n       br(), \n       br(),\n       align = \"center\",\n       h1(\"Size of Labor Force,\", month,  \"2006-2016\"),\n       h6('Data Source: Bureau of Labor Statistics, Local Area Unemployment Statistics. Data Released: ', dataRelease),\n       plotlyOutput(\"laborForcePlot\")\n    ),\n    column(12,\n       align = \"center\",\n       br(), \n       br(),\n       br(), \n       br(),\n       h1(\"Online Job Postings, \", month), \n       h3(\"Total: \", totalJobPostings, \" Bachelors or higher: \", baPlusJobPostings)\n           ), \n       align = \"center\",\n       h4(percentageBaPlus, \"of online job postings are adverstising for a bachelor's degree or higher in the Louisville MSA\"), \n       h6('Data Source: Burning Glass Labor Insights')\n  )))\n\n\n\n",
+    "created" : 1475511249298.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3698625818",
+    "id" : "CED0D814",
+    "lastKnownWriteTime" : 1475681231,
+    "path" : "C:/Users/rdevore/Desktop/rProjects/rstudioWork/shinyBlsUpdates/ui.R",
+    "project_path" : "ui.R",
+    "properties" : {
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "type" : "r_source"
+}

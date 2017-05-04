@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "library(treemap)\nlibrary(scales)\n\ntotalPostings      <- 8595\nasPostings         <- 2299 \nbaPostings         <- 1908\n\nas <- asPostings - baPostings\nba <- baPostings\nother <- totalPostings - asPostings\n\nas    <- as.data.frame(as)\nba    <- as.data.frame(ba)\nother <- as.data.frame(other)\n\ncolnames(as)[1] <- \"postings\"\ncolnames(ba)[1] <- \"postings\"\ncolnames(other)[1] <- \"postings\"\n\nas$label    <- paste(\"Associate's degree job postings\", \"\\n\", percent(as$postings/totalPostings))\nba$label    <- paste(\"Bachelor's or higher job postings\", \"\\n\", percent(ba$postings/totalPostings))\nother$label <- paste(\"All other job postings\", \"\\n\",  percent(other$postings/totalPostings))\n\neduPostings <- rbind(other, as, ba)\ntreemap(eduPostings, \"label\",  \"postings\", title = \"\")\n\n",
+    "created" : 1491408925627.000,
+    "dirty" : true,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "3701572822",
+    "id" : "AE7E185D",
+    "lastKnownWriteTime" : 7596555721265330722,
+    "last_content_update" : 1491410467471,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

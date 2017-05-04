@@ -1,0 +1,11 @@
+name: shinyBlsUpdates
+title:
+account: kwlmi
+server: shinyapps.io
+appId: 127494
+bundleId: 815201
+url: https://kwlmi.shinyapps.io/shinyBlsUpdates/
+when: 1493922073.84792
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: dataUpdate.R|Screen Shot 2017-03-17 at 10.37.28 AM.png|Screen Shot 2017-03-17 at 10.47.01 AM.png|Screen Shot 2017-03-17 at 3.08.16 PM.png|Screen Shot 2017-03-17 at 3.08.23 PM.png
