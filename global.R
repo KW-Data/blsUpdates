@@ -4,7 +4,8 @@
 ## UPDATE ITEMS BELOW 
 month              <- "March"
 dataRelease        <- "5/3/17"
-#yearRange          <- "2007-2017"
+yearRange          <- "2007-2017"
+currentYear        <- "2017"
 totalPostings      <- 10366
 asPostings         <- 3142
 baPostings         <- 2695
