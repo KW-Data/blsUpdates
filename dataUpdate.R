@@ -13,7 +13,7 @@ library(plotly)
 #Start and End Years for BLS data and Month to Filter
 startYear <- 2007
 endYear   <- 2017
-blsMonth  <- 'March'
+#blsMonth  <- 'March' Now automatic, code found at end of file under 'Filter for specified month' comment
 apiKey    <- '2691a2506f514617823b4e653111fdc9'
 #,'startyear'= startYear, 'endyear' = endYear
 #Load data and parse it out with RJSONIO
@@ -99,6 +99,8 @@ unemploymentRateData <- rbind(UnitedStatesUnemployment,
 )
 
 ################## Filter for specified month
+blsmonth <- tail(employmentData$periodName, 1)
+
 ### Labor Force ###
 laborForceData       <- laborForceData %>% filter(periodName == blsMonth)
 
@@ -111,3 +113,6 @@ unemploymentRateData <- unemploymentRateData %>% filter(periodName == blsMonth)
 save(laborForceData,       file = "laborForce.Rda")
 save(employmentData,       file = "employment.Rda")
 save(unemploymentRateData, file = "unemployment.Rda")
+
+metaData <- as.data.frame(cbind(startYear, endYear, blsMonth))
+save(metaData, file = "metaData.Rda")

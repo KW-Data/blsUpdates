@@ -14,18 +14,15 @@ library(shinythemes)
 totalJobPostings  <- format(totalPostings, big.mark = ',')
 baPlusJobPostings <- format(baPostings,    big.mark = ',')
 asPlusJobPostings <- format(asPostings,    big.mark = ',')
-percentBachelors  <- percent(round((baPostings/totalPostings), digits = 4)) 
-percentAssociates <- percent(round((asPostings/totalPostings), digits = 4)) 
-percentageBaPlus  <- percentBachelors
-#postingsChange    <- (totalPostings - lastMonthsPostings)
-#baChange          <- (baPostings - baLastMonth)
 
+#percentBachelors  <- percent(round((baPostings/totalPostings), digits = 4)) 
+percentAssociates <- percent(round((asPostings/totalPostings), digits = 4)) 
+#percentageBaPlus  <- percentBachelors
 
 
 shinyUI(fluidPage(
        theme = shinytheme("journal"),
-
-    # Show a plot of the generated distribution
+       
    fluidRow(
     column(12, 
        align = "center",
