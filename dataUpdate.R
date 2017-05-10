@@ -48,6 +48,11 @@ KentuckyLaborForce        <- apiDataConverter("LAUST210000000000006")
 LouisvilleLaborForce      <- apiDataConverter("LAUMT213114000000006")
 UnitedStatesLaborForce    <- apiDataConverter("LNU01000000")
 
+#### Employment  Series ID's ###
+JeffersonCountyEmployment <- apiDataConverter("LAUCN211110000000005")
+KentuckyEmployment        <- apiDataConverter("LAUST210000000000005")
+LouisvilleEmployment      <- apiDataConverter("LAUMT213114000000005")
+
 ### Unemployment Rate Series ID's ###
 JeffersonCountyUnemployment <- apiDataConverter("LAUCN211110000000003")
 KentuckyUnemployment        <- apiDataConverter("LAUST210000000000003")
@@ -63,6 +68,11 @@ LouisvilleLaborForce$area        <- "Louisville MSA"
 UnitedStatesLaborForce$area      <- "United States"
 #UnitedStatesLaborForce$value    <- (UnitedStatesLaborForce$value)*1000
 
+###  Employment ###
+JeffersonCountyEmployment$area   <- "Jefferson County"
+KentuckyEmployment$area          <- "Kentucky"
+LouisvilleEmployment$area        <- "Louisville MSA"
+
 ### Unemployment ###
 JeffersonCountyUnemployment$area <- "Jefferson County"
 KentuckyUnemployment$area        <- "Kentucky"
@@ -76,6 +86,11 @@ laborForceData       <- rbind(JeffersonCountyLaborForce,
                               KentuckyLaborForce, 
                               LouisvilleLaborForce)
 
+### Employment ###
+employmentData       <- rbind(JeffersonCountyEmployment, 
+                              KentuckyEmployment, 
+                              LouisvilleEmployment)
+
 ### Unemployment ###
 unemploymentRateData <- rbind(UnitedStatesUnemployment,
                               KentuckyUnemployment, 
@@ -87,8 +102,12 @@ unemploymentRateData <- rbind(UnitedStatesUnemployment,
 ### Labor Force ###
 laborForceData       <- laborForceData %>% filter(periodName == blsMonth)
 
+###  Employment ###
+employmentData       <- employmentData %>% filter(periodName == blsMonth)
+
 ### Unemployment ###
 unemploymentRateData <- unemploymentRateData %>% filter(periodName == blsMonth)
 
 save(laborForceData,       file = "laborForce.Rda")
+save(employmentData,       file = "employment.Rda")
 save(unemploymentRateData, file = "unemployment.Rda")

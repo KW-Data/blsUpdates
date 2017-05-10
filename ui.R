@@ -9,9 +9,6 @@ library(plotly)
 library(shinythemes)
 
 
-
-
-
 ################################################################################################################################################################
 ################################################################################################################################################################
 totalJobPostings  <- format(totalPostings, big.mark = ',')
@@ -46,6 +43,19 @@ shinyUI(fluidPage(
        h6('Data Source: Bureau of Labor Statistics, Local Area Unemployment Statistics. Data Released: ', dataRelease),
        plotlyOutput("laborForcePlot")
     ),
+    
+    column(12, 
+           br(),
+           br(),
+           br(),
+           br(),
+           align = "center",
+           h1("Employment,", month, "2007-2017"),
+           h6('Data Source: Bureau of Labor Statistics, Local Area Unemployment Statistics. Data Released: ', dataRelease),
+           plotlyOutput("employmentPlot"),
+           br(),
+           br()),
+    
     column(12,
        align = "center",
        br(), 

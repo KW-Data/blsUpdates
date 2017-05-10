@@ -11,6 +11,7 @@ library(plotly)
 library(treemap)
 
 load('laborForce.Rda')
+load('employment.Rda')
 load('unemployment.Rda')
 
 
@@ -66,7 +67,11 @@ yAxisLaborForce       <- list(
                             title = "Labor Force",
                             titlefont = axisFont)
 
-yaxisUnemploymentRate <- list(
+yAxisEmployment       <- list(
+                            title = "Employment",
+                            titlefont = axisFont)
+
+yAxisUnemploymentRate <- list(
                             title = "Unemployment Rate",
                             titlefont = axisFont)
        
@@ -127,12 +132,33 @@ shinyServer(function(input, output) {
                        # height = 500, 
                        margin = margin, 
                        xaxis  = xAxis, 
-                       yaxis  = yaxisUnemploymentRate,
+                       yaxis  = yAxisUnemploymentRate,
                        font   = font, 
                        legend = list(
                               x = .7, 
                               y = .95))
 
+  })
+  
+  output$employmentPlot <- renderPlotly({
+         
+         plot_ly(employmentData, 
+                 x = ~year, 
+                 y = ~value, 
+                 color = ~area,
+                 type = 'scatter', 
+                 mode = 'lines+markers') %>%
+                layout(
+                       autosize = F, 
+                       # width  = 700, 
+                       # height = 500, 
+                       margin = margin, 
+                       xaxis  = xAxis, 
+                       yaxis  = yAxisEmployment,
+                       font   = font, 
+                       legend = list(
+                              x = .6, 
+                              y = .6))
   })
   
   output$postingsTreemap <- renderPlot({
