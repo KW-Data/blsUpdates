@@ -83,12 +83,12 @@ UnitedStatesUnemployment$area    <- "United States"
 ################### Combine dataframes
 ### Labor Force ###
 laborForceData       <- rbind(JeffersonCountyLaborForce, 
-                              KentuckyLaborForce, 
+                              #KentuckyLaborForce, 
                               LouisvilleLaborForce)
 
 ### Employment ###
 employmentData       <- rbind(JeffersonCountyEmployment, 
-                              KentuckyEmployment, 
+                              #KentuckyEmployment, 
                               LouisvilleEmployment)
 
 ### Unemployment ###
